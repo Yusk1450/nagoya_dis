@@ -1,0 +1,53 @@
+
+nav.navbar-custom
+{
+	background : rgba(240, 240, 240, 0.9);
+}
+
+@media (min-width: 768px) {
+	body
+	{
+		border-bottom : 1px #c9c9c9 solid;
+	}
+}
+@media (max-width: 768px) {
+	body
+	{
+		border-top : 1px #c9c9c9 solid;
+	}
+}
+
+div.navbar-header > a.navbar-brand
+{
+	padding-top : 0px;
+	height      : 35px;
+	line-height : 35px;
+}
+
+div.navbar-header > a.navbar-brand > img
+{
+	width  : 201px;
+	height : 35px;
+}
+
+div.navbar-header > a.navbar-brand-center
+{
+	top        : 0;
+	left       : 0;
+	width      : 100%;
+	text-align : center;
+	margin     : auto;
+	position   : absolute;
+}
+
+div.navbar-collapse > ul.navbar-nav > li > a
+{
+	color        : #222222;
+	font-family  : 'Noto Sans Japanese', serif;
+	margin-right : 15px;
+}
+
+div.row > div
+{
+	padding : 0;
+}

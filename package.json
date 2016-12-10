@@ -1,0 +1,13 @@
+{
+	"name": "",
+	"version": "0.0.1",
+	"author": "ISHIGO Yusuke",
+	"license": "ISC",
+	"description": "",
+	"devDependencies": {
+	    "gulp": "^3.9.1",
+	    "gulp-sass": "^2.3.2",
+	    "gulp-sourcemaps": "^1.6.0",
+	    "gulp-watch": "^4.3.10"
+	}
+}
