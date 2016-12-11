@@ -53,11 +53,11 @@ class Tweets extends DAOBase
 		return Tweets::TweetsFromResource($res);
 	}
 
-	// public static function FindByIndex($index)
-	// {
-	// 	$res = DAOBase::executeQuery(Books::TableName(), "*", false, "books_index = '${index}'");
-	// 	return Books::BooksFromResource($res);
-	// }
+	public static function FindByTweetIndex($tweet_id)
+	{
+		$res = DAOBase::executeQuery(Tweets::TableName(), "*", false, "tweets_str_id = '${tweet_id}'");
+		return Tweets::TweetsFromResource($res);
+	}
 
 	public static function TweetsFromResource($res)
 	{

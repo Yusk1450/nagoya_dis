@@ -43,6 +43,12 @@ function addTweetToDB($str_id, $username, $screenname, $img_url, $date, $text, $
 			return;
 		}
 
+		// すでに登録されているツイートの場合は追加しない
+		if (count(Tweets::FindByTweetIndex($str_id)) > 0)
+		{
+			return false;
+		}
+
 		$username = mysql_real_escape_string($username);
 		$screenname = mysql_real_escape_string($screenname);
 		$img_url = mysql_real_escape_string($img_url);
