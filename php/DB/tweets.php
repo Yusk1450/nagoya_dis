@@ -59,6 +59,12 @@ class Tweets extends DAOBase
 		return Tweets::TweetsFromResource($res);
 	}
 
+	public static function FindByPosiNega($pn)
+	{
+		$res = DAOBase::executeQuery(Tweets::TableName(), "*", false, "tweets_pn = '${pn}'");
+		return Tweets::TweetsFromResource($res);
+	}
+
 	public static function TweetsFromResource($res)
 	{
 		$results = array();

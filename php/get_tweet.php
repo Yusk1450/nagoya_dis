@@ -1,32 +1,38 @@
 <?php
 
-// TODO: データベースからツイートを取得する
+require_once "DB/tweets.php";
 
-/* -------------------------------------------------------------------------------------
- * 指定した文字列の感情を分析する
-------------------------------------------------------------------------------------- */
-// function analyzeSentiment($text)
-// {
-// 	$url = 'http://mueki.net/twana/api.php';
-// 	$data = array(
-// 	    'q' => $text,
-// 	);
-// 	$data = http_build_query($data);
+$pn = array();
 
-// 	$header = array(
-//         "Content-Type: application/x-www-form-urlencoded",
-//         "Content-Length: ".strlen($data)
-//     );
-// 	$options = array('http' => array(
-// 	    'method' => 'POST',
-// 	    'header' => implode("\r\n", $header),
-// 	    'content' => $data
-// 	));
-// 	$pn = file_get_contents($url, false, stream_context_create($options));
+// ポジティブツイート
+$pTweets = Tweets::FindByPosiNega('p');
+$p = array();
+foreach ($pTweets as $tweet)
+{
+	$data = array();
+	$data['username'] = $tweet->username;
+	$data['screenname'] = $tweet->screenname;
+	$data['img'] = $tweet->img;
+	$data['date'] = $tweet->date;
+	$data['text'] = $tweet->text;
+	$data['count'] = $tweet->count;
+	$p []= $data;
+}
+$pn['p'] = $p;
 
-// 	$data = array();
-// 	$data['pn'] = $pn;
-// 	$data['text'] = $text;
+$nTweets = Tweets::FindByPosiNega('n');
+$n = array();
+foreach ($nTweets as $tweet)
+{
+	$data = array();
+	$data['username'] = $tweet->username;
+	$data['screenname'] = $tweet->screenname;
+	$data['img'] = $tweet->img;
+	$data['date'] = $tweet->date;
+	$data['text'] = $tweet->text;
+	$data['count'] = $tweet->count;
+	$n []= $data;
+}
+$pn['n'] = $n;
 
-// 	return $data;
-// }
+echo json_encode($pn);
