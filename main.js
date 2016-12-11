@@ -15,6 +15,24 @@ $(function()
 	{
 		alert('本サービスの利用には、位置情報取得機能が必要です。');
 	}
+
+
+	// var api = RESASAPI();
+	// api.apikey("80T3ED5HQPCrNBCXk3wOfm6pquJmbbaUAJynnPJ3");
+
+	// api.type("都道府県一覧");
+
+	// api.param({
+	//     "prefCode":"11",
+	//     "sicCode":"E",
+	//     "simcCode":"20",
+	// });
+
+	// api.on('load', function(data) {
+	//     console.log(data)
+	// });
+
+	// api.send();
 });
 
 function isGifuPref(revGeoData)
@@ -23,10 +41,8 @@ function isGifuPref(revGeoData)
 	var data = revGeoData[count-2]['formatted_address'].split(',');
 	if (data[1].trim() === '岐阜県')
 	{
-		console.log('ここは岐阜県です');
 		return true;
 	}
-	console.log('ここは岐阜県ではありません');
 	return false;
 }
 

@@ -32,7 +32,7 @@ function getTweets($word, $count = 100)
         $access_token,
         $access_token_secret);
 
-    return $tw_obj->get('search/tweets', array('q' => $word, 'count' => $count));
+    return $tw_obj->get('search/tweets', array('q' => $word, 'count' => $count, 'result_type' => 'recent'));
 }
 
 /* -------------------------------------------------------------------------------------
